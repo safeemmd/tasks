@@ -1,0 +1,11 @@
+---
+- hosts: developers
+  become: true
+  tasks:
+  - name: add user
+    user: shell="/usr/bin/false" state=present name="{{ item }}"
+    with_items:
+      - test1
+      - test2
+  - name: add user
+    user: shell=/bin/bash state=present name=test3
